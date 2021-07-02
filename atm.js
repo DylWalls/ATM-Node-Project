@@ -12,7 +12,6 @@ function pinVerification(num){ //verification for the pin
     }
     else if (num !== pin){
         prompt("Wrong pin, try again. ");
-        return false;
     }
 }
 function newBalance(amount){
