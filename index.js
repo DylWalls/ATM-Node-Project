@@ -25,7 +25,7 @@ function menu(){ //ATM Menu
      menuRoute(select); //Runs the menuRoute function
 }
 let userInput = prompt("Would you like to go to the main menu? Y/N ", yesNo).toLowerCase(); // Main Menu? Yes or No;
-if (userInput == "y"){
+if (userInput == "y"){  
     menu(); //User is sent back to the menu
 }
 else if(userInput = "n") {
@@ -36,3 +36,7 @@ else if(userInput = "n") {
 function yesNo(input) {
     return input.toLowerCase() == "y" || input.toLowerCase() == "n";
   }
+module.exports ={
+Menu: menu,
+
+}
