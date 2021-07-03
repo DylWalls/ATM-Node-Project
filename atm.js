@@ -1,21 +1,10 @@
 //functions for getBalance, withdraw, deposit, validatepin
 const prompt = require('prompt-sync')();
-const {Menu} = require('./index.js');
 const {pin, bal} = require('./account.js'); //importing from account
 
 
 function getBalance(){ //place to grab the active balance
     console.log(`Your balance is: ${bal}`);
-    console.log("What would you like to do? \n 1 for withdraw money \n 2 for depositting money \n 3 for menu");
-    let user = prompt();
-    if (user === "1"){
-        withDrawing(); //To withdraw
-    }
-    else if (user === "2"){//to deposit
-    }
-    else if (user === "3"){ //back to menu
-        Menu();
-    }
 }
 
 function pinVerification(){ //verification for the pin
