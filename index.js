@@ -1,7 +1,6 @@
 const prompt = require('prompt-sync')();//making prompt-sync a function
-
 const {pinVerify, withdraw, balance} = require('./atm.js'); // linking atm to index
-startUp();
+startUp(); 
 
 function menuRoute(select){
     if (select === "1"){ //User wants to check their balance
@@ -25,8 +24,8 @@ function menu(){ //ATM Menu
 }
 //do menu function until user wants to exit
 //prompting user if they want to exit atm
-userInput = prompt("Would you like to go to the main menu? Y/N ", yesNo).toLowerCase();
-}while(userInput !== "y");
+userInput = prompt("Would you like to go to the main menu? Y/N ");
+}while(userInput != "n");
 console.log("Thank you for choosing Walls Fargo! \n Have a great rest of your day!");
 
 
