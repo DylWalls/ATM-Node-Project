@@ -1,22 +1,24 @@
 //functions for getBalance, withdraw, deposit, validatepin
 const prompt = require('prompt-sync')();
-const {pin, balance} = require('./account.js'); //importing from account
+const {pin, bal} = require('./account.js'); //importing from account
 
 function getBalance(){ //place to grab the active balance
     prompt("Your balance is: ", +balance);
 }
 
-function pinVerification(num){ //verification for the pin
-    if (num === pin){
-        prompt("Correct pin. Press enter to continue.");
+function pinVerification(){ //verification for the pin
+let userInput = prompt("Please enter your pin. ");
+    if (userInput === pin){
+        console.log("Correct pin.");   
     }
-    else if (num !== pin){
-        prompt("Wrong pin, try again. ");
+    else if (userInput !== pin){
+        console.log("Wrong pin, try again. ");
     }
 }
-function newBalance(amount){
-    balance;
-    newBalance = balance -20;
+
+function newBalance(){
+    bal;
+    newBalance = bal -20;
 }
 
 function withDrawing(balance){ //withdraw function
@@ -33,5 +35,6 @@ function withDrawing(balance){ //withdraw function
 module.exports = { //exporting from atm
     pinVerify: pinVerification,
     balance: getBalance,
-    withdraw: withDrawing
+    withdraw: withDrawing,
+    balance: bal,
     }
