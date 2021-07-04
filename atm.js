@@ -1,58 +1,41 @@
 //functions for getBalance, withdraw, deposit, validatepin
 const prompt = require('prompt-sync')();
-const {pin, bal} = require('./account.js'); //importing from account
+const account = require('./account'); //importing account
 
 
 function getBalance(){ //place to grab the active balance
-    console.log(`Your balance is: ${bal}`);
+    console.log("Your balance is:");
+    console.log(account.bal);
 }
 
 function pinVerification(){ //verification for the pin
 let userInput = prompt("Please enter your pin: ");
-    if (userInput === pin){
+    if (userInput === account.pin){
         console.log("Correct pin.");   
     }
-    else if (userInput !== pin){
+    else if (userInput !== account.pin){
         console.log("Wrong pin, try again. ");
         pinVerification(userInput);
     }
 }
 
 function depositting(){//deposit function
-    bal;
     console.log("Please enter the amount you wish to deposit.");
     amount = prompt();
-    newBalance = bal + amount;
+    newBalance = account.bal + parseInt(amount);
     console.log(`Success! Your new balance is $${newBalance}!`);
-    console.log("Would you like another transaction? Y/N")
-    input = prompt().toLowerCase();
-    if (input = "y"){      
-    }
-    else if (input = "n"){
-        console.log("Thank you for choosing Walls Fargo! \n Have a great rest of your day!");
-    }
 }
 
-function withDrawing(amount){ //withdraw function
-   bal;
+function withDrawing(){ //withdraw function
     console.log("Please enter an amount in multiples of 20s");
     amount = prompt();
-   if(bal >= amount){
-    newBalance = bal - amount;
-    console.log(`Here is your money $${amount}, with a new balance of $${newBalance}`);
+    if (account.bal >= amount){
+       newBalance = account.bal - amount;
+       console.log(`Here is your money $${amount}, your new balance is $${newBalance}`);
    }
-   else if (bal < amount ){
-   console.log("Insufficient funds") 
+   else if (account.bal < amount){
+       console.log("Insufficient funds!")
    }
-    console.log("Would you like another transaction? Y/N")
-    transAct = prompt().toLowerCase();
-   if (transAct = "y"){
-       withDrawing();
-   }
-   else if (transAct = "n"){
-    console.log("Thank you for choosing Walls Fargo! \n Have a great rest of your day!");
-   }
-
 }
 
 module.exports = { //exporting from atm

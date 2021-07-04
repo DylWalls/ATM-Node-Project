@@ -1,23 +1,23 @@
 const prompt = require('prompt-sync')();//making prompt-sync a function
-const {pinVerify, withdraw, balance, deposit} = require('./atm.js'); // linking atm to index
+const atm = require('./atm'); // linking atm to index
 startUp(); 
 
 function menuRoute(select){
     if (select === "1"){ //User wants to check their balance
-        balance();
+        atm.balance();
     }
     else if (select === "2"){ //User wants to withdraw money
-        withdraw();
+        atm.withdraw();
     }
     else if (select === "3"){ //User wants to add money
-        deposit();
+        atm.deposit();
     }
 
 }
 function startUp(){
     let bankName = "Walls Fargo" // created a Bank Name
     console.log(`*****Welcome to ${bankName}*****`); //Greeting the User
-    pinVerify(); //Runs straight to the Pin verify function from Atm     
+    atm.pinVerify(); //Runs straight to the Pin verify function from Atm     
 }
 do{ //loop to keep the UI active
     menu();
