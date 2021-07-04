@@ -18,34 +18,46 @@ let userInput = prompt("Please enter your pin: ");
     }
 }
 
-function newBalance(){ //Correct balance after withdrawing money.
-    bal;//current balance
-    newBalance = bal - amount; //new active balance
+function depositting(){//deposit function
+    bal;
+    console.log("Please enter the amount you wish to deposit.");
+    amount = prompt();
+    newBalance = bal + amount;
+    console.log(`Success! Your new balance is $${newBalance}!`);
+    console.log("Would you like another transaction? Y/N")
+    input = prompt().toLowerCase();
+    if (input = "y"){      
+    }
+    else if (input = "n"){
+        console.log("Thank you for choosing Walls Fargo! \n Have a great rest of your day!");
+    }
 }
 
 function withDrawing(amount){ //withdraw function
-    bal;
-    amount = prompt("Please withdraw multiples of 20s  ");; //saving user input as amount
-    if(amount % 20 && amount != 0 ){
-        newBalance(amount);
-        console.log(`Success! Your new balance is: ${currentBal}`);
-        console.log("Press 1 for menu or press 2 to exit atm");
-        select = prompt();//saving user input as select for options
-        if (select == "1"){
-            menu();
-        }
-        else if(select == "2"){
-            console.log("Thank you for choosing Walls Fargo! \n Have a great rest of your day!");
-        }
-    }
-    else if (amount >= bal){
-        console.log("Insufficient funds");
-        withDrawing();
-    }
+   bal;
+    console.log("Please enter an amount in multiples of 20s");
+    amount = prompt();
+   if(bal >= amount){
+    newBalance = bal - amount;
+    console.log(`Here is your money $${amount}, with a new balance of $${newBalance}`);
+   }
+   else if (bal < amount ){
+   console.log("Insufficient funds") 
+   }
+    console.log("Would you like another transaction? Y/N")
+    transAct = prompt().toLowerCase();
+   if (transAct = "y"){
+       withDrawing();
+   }
+   else if (transAct = "n"){
+    console.log("Thank you for choosing Walls Fargo! \n Have a great rest of your day!");
+   }
+
 }
 
 module.exports = { //exporting from atm
     pinVerify: pinVerification,
     balance: getBalance,
     withdraw: withDrawing,
+    deposit: depositting,
     }
